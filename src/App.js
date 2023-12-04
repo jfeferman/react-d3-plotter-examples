@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { ScatterPlot } from 'react-d3-plotter'
 
-function App() {
+function generateRandomData(maxX, maxY, n) {
+  const randomData = [];
+
+  for (let i = 0; i < n; i++) {
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+    randomData.push([randomX, randomY]);
+  }
+
+  return randomData;
+}
+const maxX = 50
+const maxY = 150
+const numberOfPoints = 200
+const randomData = generateRandomData(maxX, maxY, numberOfPoints)
+
+export const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <ScatterPlot data={randomData} />
+      </div>
     </div>
-  );
+  )
 }
-
-export default App;
