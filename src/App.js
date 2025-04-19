@@ -12,10 +12,11 @@ function generateRandomData(maxX, maxY, n) {
 
   return randomData;
 }
-const maxX = 50
-const maxY = 150
-const numberOfPoints = 200
+const maxX = Math.random() * 200
+const maxY = Math.random() * 200
+const numberOfPoints = Math.random() * 50
 const randomData = generateRandomData(maxX, maxY, numberOfPoints)
+console.log('here')
 
 export const App = () => {
   return (
